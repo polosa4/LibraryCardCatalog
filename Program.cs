@@ -11,11 +11,13 @@ namespace LibraryCardCatalog
         static void Main(string[] args)
         {
             Console.WriteLine("Enter the name of the file: ");
-            var userFilename = Console.ReadLine();
-            if userFilename !== null {
-                Console.WriteLine()
-            }
+            string fileName = Console.ReadLine();
+            CardCatalog newCatalog = new CardCatalog(fileName);
+            newCatalog.BookName = "HarryPoter";
+            newCatalog.Save(fileName);
+
+        }
 
         }
     }
-}
+
