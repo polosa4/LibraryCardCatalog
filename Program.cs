@@ -18,6 +18,16 @@ namespace LibraryCardCatalog
 
         }
 
+            var myBookList = new List<Book>();
+            myBookList.Add(new Book
+            {
+                Author = "Name",
+                Title = "Title",
+                Year = 2013
+            });
+
+         
+
         }
     }
 
