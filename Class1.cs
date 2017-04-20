@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCardCatalog
 {
-    class Book
+    public class Book
     {
         public string Author { get; set; }
         public string Title { get; set; }

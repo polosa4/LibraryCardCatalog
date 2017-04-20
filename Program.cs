@@ -14,17 +14,21 @@ namespace LibraryCardCatalog
             string fileName = Console.ReadLine();
             CardCatalog newCatalog = new CardCatalog(fileName);
             newCatalog.BookName = "HarryPoter";
+            newCatalog.Author = "Uknnown";
+            newCatalog.Title = "Hello World";
+            newCatalog.BookName = "CodingTemple";
+            newCatalog.Author = "Uknnown2";
             newCatalog.Save(fileName);
 
         }
 
-            var myBookList = new List<Book>();
-            myBookList.Add(new Book
-            {
-                Author = "Name",
-                Title = "Title",
-                Year = 2013
-            });
+            //var myBookList = new List<Book>();
+            //myBookList.Add(new Book
+            //{
+            //    Author = "Name",
+            //    Title = "Title",
+            //    Year = 2013
+            //});
 
          
 
