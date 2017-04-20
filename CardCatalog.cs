@@ -17,7 +17,7 @@ namespace LibraryCardCatalog
             _filename = fileName;
             if (File.Exists(fileName))
             {
-                // test
+                
             }
         }
         public void Save(string fileName)
@@ -28,5 +28,7 @@ namespace LibraryCardCatalog
                 XML.Serialize(stream, this);
             }
         }
+
+       
     }
 }

@@ -12,9 +12,19 @@ namespace LibraryCardCatalog
         {
             Console.WriteLine("Enter the name of the file: ");
             var userFilename = Console.ReadLine();
-            if userFilename !== null {
-                Console.WriteLine()
+            if (userFilename != null) {
+                Console.WriteLine();
             }
+
+            var myBookList = new List<Book>();
+            myBookList.Add(new Book
+            {
+                Author = "Name",
+                Title = "Title",
+                Year = 2013
+            });
+
+         
 
         }
     }
