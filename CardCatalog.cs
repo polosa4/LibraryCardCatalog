@@ -9,16 +9,18 @@ using System.Threading.Tasks;
 
 namespace LibraryCardCatalog
 {
-    public class CardCatalog : Book
+    public class CardCatalog                    // creating a new CardCatalog and inherit the Book class
     {
-        public string BookName { get; set; }
-        public string _filename;
+        
+        private string _filename;                      // declaring a new attribute 
+        public List<Book> books;                       // declaring a new attribute List that is going to list out book class
+
         //private string books;
 
-        public CardCatalog()
-        {
+        //public CardCatalog()
+        //{
 
-        }
+        //}
         public CardCatalog(string fileName)
         {
             _filename = fileName;
@@ -40,16 +42,25 @@ namespace LibraryCardCatalog
             }
         }
         
-        public List<Book> books;
-        public void Save(string fileName)
+        
+
+        public List<Book> ListBooks()
         {
-            using (FileStream stream = new FileStream(fileName, FileMode.Create))
+            return books;
+        }
+        public void Save(string fileName)   //declaring a constructor to save new xml file which takes a string parameter 
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(List<Book>));   //creating a new xml serializer that is going to take a List of books
+
+            using (FileStream fs = new FileStream(_filename, FileMode.Create))   //calling a new FileStream class that is going to take all included data stored in a filename and create a new file called fileName
             {
-                var XML = new XmlSerializer(typeof(List<Book>));
-                XML.Serialize(stream, this);
+                using (XmlWriter writer = XmlWriter.Create(fs))
+                {
+                    serializer.Serialize(writer, books);
+                }
             }
         }
 
-       
+
     }
 }
