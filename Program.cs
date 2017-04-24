@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
+using System.Xml;
+using System.IO;
 
 namespace LibraryCardCatalog
 {
@@ -27,10 +30,31 @@ namespace LibraryCardCatalog
                 switch (option)
                 {
                     case 1:
-                        foreach (var book in newCatalog.ListBooks())
+
+                        Console.WriteLine("List of books in Card Catalog: ");
+
+                        
+                        if (File.Exists(fileName))
                         {
-                            Console.WriteLine("{0}{ 1}{ 2}", book.Author, book.Title, book.Year);
+                            XDocument doc = XDocument.Load(fileName);
+
+                            var books = doc.Descendants("Title");
+
+                            foreach (var book in books)
+                            {
+                                Console.WriteLine(book.Value);
+
+                            }
                         }
+                        else
+                        {
+                            Console.WriteLine("File name does not exist. Select option number 2 to add books or 3 to exit. ");
+                        }
+                        
+                        Console.ReadLine();
+
+                   
+
                         break;
                     case 2:
                         Console.WriteLine("Enter the book author name");
